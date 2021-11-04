@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Tic Tac Toe') }}</title>
 </head>
 <body>
     <div class="container">
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col mt-3">
 
-                <h1 class="text-center">{{ config('app.name', 'Laravel') }}</h1>
+                <h1 class="text-center">{{ config('app.name', 'Tic Tac Toe') }}</h1>
 
             </div>
         </div>

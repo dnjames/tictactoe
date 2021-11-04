@@ -66,7 +66,7 @@
                                     <input v-if="(prepareData.playerType && prepareData.playerType == game.firstPlayerType)" name="player_type" type="hidden" :value="game.secondPlayerType">
                                     <input v-if="(prepareData.playerType && prepareData.playerType == game.secondPlayerType)" name="player_type" type="hidden" :value="game.firstPlayerType">
 
-                                    <button class="btn btn-link btn-block" :id="game.gameBoardArray[row+''+col]"></button>
+                                    <button class="btn btn-link btn-block handleMove" :id="game.gameBoardArray[row+''+col]"></button>
                                 </form>
                             </div>
                         </div>
@@ -116,6 +116,9 @@ export default {
         },
         computerOpponent(opponent) {
             if (opponent == 'computer') {
+                Array.from(document.querySelectorAll('.handleMove')).forEach(function (btn, index) {
+                    btn.setAttribute("disabled", "disabled");
+                });
                 setTimeout(()=>{
                     let board = Array.from(document.getElementsByName('board[]')).map(el => el.value.length < 1 ? null : el.value.toUpperCase());
                     // randomMove();
@@ -195,6 +198,10 @@ let computerTurn = (newBoard) => {
 
     let choice = document.getElementById(bestRoute);
     if (choice) {
+    Array.from(document.querySelectorAll('.handleMove')).forEach(function (btn, index) {
+        console.log(btn);
+        btn.removeAttribute("disabled");
+    });
       choice.click();
       return true;
     }

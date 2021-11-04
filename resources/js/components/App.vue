@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <template v-if="inGames">
-                    <game-list :games="games" :loading="loading" @showMatch="showMatch"
+                    <game-list :games="games" :loading="loading" @showGame="showGame"
                                 @createGame="createGame" @removeGame="removeGame"/>
                 </template>
                 <template v-if="createGamePage">
@@ -39,7 +39,6 @@
     data: function () {
       return {
         games: {},
-        match: {},
         game: {},
         prepareData: null,
         loading: true,
@@ -62,19 +61,12 @@
       }
     },
     methods: {
-      showMatch(id) {
+      showGame(id) {
         this.loading = true;
         api.game({id: id}).then(({data}) => {
-          this.match = data;
+          this.game = data;
           this.loading = false;
           this.current = GAME;
-        })
-      },
-      loadMatch(id) {
-        this.loading = true;
-        api.game({id: id}).then(({data}) => {
-          this.match = data;
-          this.loading = false;
         })
       },
       showGames() {

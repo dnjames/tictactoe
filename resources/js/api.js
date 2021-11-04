@@ -1,17 +1,16 @@
 import axios from 'axios';
 
 const URL_GAMES = '/games',
-  URL_MATCH = '/api/match/',
   URL_ROUND = '/game-rounds',
   URL_MOVE = '/game-histories',
-  URL_UPDATE = '/games/'
+  URL_UPDATE = '/games/';
 
 export default {
   games: () => {
     return axios.get(URL_GAMES);
   },
   game: ({id}) => {
-    return axios.get(URL_MATCH + id);
+    return axios.get(URL_UPDATE + id);
   },
   newround: (form) => {
     return axios.post(URL_ROUND, form);

@@ -8,7 +8,7 @@
         <div class="list-group list-group-flush">
             <template v-if="loading === false">
                 <div v-if="!games.length">
-                    <p class="alert alert-info">No matches created yet. Be the first one!</p>
+                    <p class="alert alert-info">No games created yet. Be the first one!</p>
                 </div>
                 <table class="table">
                     <thead>
@@ -52,8 +52,8 @@
   export default {
     props: ['games', 'loading'],
     methods: {
-      showMatch(id) {
-        this.$emit('showMatch', id)
+      showGame(id) {
+        this.$emit('showGame', id)
       },
       createGame() {
         this.$emit('createGame')
