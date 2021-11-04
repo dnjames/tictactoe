@@ -160,9 +160,7 @@ const SOLUTIONS = [
 
 function randomMove() {
     let position = Math.floor(Math.random() * 10);
-    console.log(position);
     let choice = document.getElementById(position);
-    console.log(choice);
     if (choice) {
       choice.click();
       return true;
@@ -199,7 +197,6 @@ let computerTurn = (newBoard) => {
     let choice = document.getElementById(bestRoute);
     if (choice) {
     Array.from(document.querySelectorAll('.handleMove')).forEach(function (btn, index) {
-        console.log(btn);
         btn.removeAttribute("disabled");
     });
       choice.click();
